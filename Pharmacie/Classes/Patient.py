@@ -18,7 +18,6 @@ class Patient:
         """
         # Attributs d'instance
         self._numero_patient = p_numero_patient
-        self._numero_patient = p_numero_patient
         self._nom = p_nom
         self._prenom = p_prenom
         self._date_naiss = p_date_naiss

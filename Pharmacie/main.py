@@ -40,6 +40,7 @@ from Dialog.dialog_rechercher import Fenetrerechercher
 # Créer une classe qui hérite de Qt et de notre ui.
 # Nom de ma classe (fenetrePrincipal)
 
+
 class fenetrePrincipale(QtWidgets.QMainWindow,UI_PY.MainWindow_pharmacie.Ui_MainWindow):
     """
     Nome de la classe : fenetrePrincipale
@@ -64,6 +65,7 @@ class fenetrePrincipale(QtWidgets.QMainWindow,UI_PY.MainWindow_pharmacie.Ui_Main
         # Instancier une boite de dialogue FenetreListview
         dialog = Fenetrepatient()
         # Afficher la boite de dialogue
+        Fenetrepatient.cacher_erreur_patient(Fenetrepatient.self)
         dialog.show()
         dialog.exec_()
     # gastionnaire d'événement du bouton Médicament

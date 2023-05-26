@@ -1,9 +1,10 @@
-class Medicament :
+class Medicament:
     """
     Classe Medicament
     """
     # Attribut de classe
     ls_medicaments = []
+
     def __init__(self, p_code_medicament: str = "", p_nom_chimique: str = "",
                  p_nom_commercial: str = "", p_prix: int = 0, p_categorie: str = ""):
         """
