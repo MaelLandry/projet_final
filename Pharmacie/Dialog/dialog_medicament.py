@@ -4,6 +4,8 @@ from PyQt5.QtCore import pyqtSlot
 import UI_PY.dialog_medicament
 from PyQt5 import QtWidgets
 from Classes.Medicament import Medicament
+from Classes.Antibiotique import Antibiotique
+from Classes.Analgesique import Analgesique
 
 ######################################################
 ###### DÉFINITIONS DE LA CLASSE Fenetrelistview ######
@@ -30,6 +32,18 @@ class Fenetremedicament(QtWidgets.QDialog, UI_PY.dialog_medicament.Ui_Dialog_Med
         self.label_erreur_prix.setVisible(False)
         self.label_erreur_duree_prise_max.setVisible(False)
 
+    def Reinitialiser_text(self):
+        """
+        Procédure qui permet de réinitialiser les lineEdits
+        """
+        self.lineEdit_prix.clear()
+        self.lineEdit_nom_chimique.clear()
+        self.lineEdit_nom_commercial.clear()
+        self.lineEdit_code_medicament.clear()
+        self.lineEdit_dose_quot_max.clear()
+        self.lineEdit_duree_prise_max.clear()
+
+
 
 
     @pyqtSlot()
@@ -37,15 +51,18 @@ class Fenetremedicament(QtWidgets.QDialog, UI_PY.dialog_medicament.Ui_Dialog_Med
         """
         Gestionnaire d'évènement pour le bouton Ajouter
         """
-         medicament = Medicament()
+        medicament = Medicament()
          # Validation des entrées de l'utilisateur et affichage des messages d'erreur dans les labels d'erreur
-        medicament.Code_medicament = self.lineEdit_numero_medicament.text()
-        medicament.Nom_chimique = self.lineEdit_nom_medicament.text()
-        medicament.Nom_commercial = self.lineEdit_prenom_medicament.text()
-        medicament.Prix = self.dateEdit_date_naiss_medicament.date()
+        medicament.Code_medicament = self.lineEdit_prix.text()
+        medicament.Nom_chimique = self.lineEdit_nom_chimique.text()
+        medicament.Nom_commercial = self.lineEdit_nom_commercial.text()
+        medicament.Prix = self.lineEdit_code_medicament.text()
+        Antibiotique.Duree_prix_max = self.lineEdit_nom_commercial.text()
+        Analgesique.Dose_quot_max = self.lineEdit_code_medicament.text()
 
-        if medicament.Numero_medicament == 0:
-            self.label_erreur_num_medicament_valider.setVisible(True)
+        #Pas fini
+        if medicament.Code_medicament == 0:
+            self.label_erreur_code_medicament_existe_pas.setVisible(True)
         else:
             verif_num = Verifier_numero_medicament_existe(medicament.Numero_medicament)
             if verif_num == True :
@@ -59,6 +76,16 @@ class Fenetremedicament(QtWidgets.QDialog, UI_PY.dialog_medicament.Ui_Dialog_Med
 
             # Ajouter le medicament à la liste des medicaments
             medicament.ls_medicaments.append(medicament)
+            self.Reinitialiser_text()
 
     @pyqtSlot()
     def on_pushButton_rechercher_clicked(self):
+        Medicament.Prix = self.lineEdit_code_medicament.text()
+        Antibiotique.Duree_prix_max = self.lineEdit_nom_commercial.text()
+        Analgesique.Dose_quot_max = self.lineEdit_code_medicament.text()
+
+        if...
+
+
+        for elt in Medicament.ls_medicaments:
+

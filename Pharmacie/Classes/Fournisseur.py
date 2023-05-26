@@ -2,10 +2,12 @@ from Classes.Medicament import Medicament
 from Classes.Medicament import Patient
 import jsonpickle
 
+
 class Fournisseur:
     # Attributs de classe
     nb_fournisseur = 0
     ls_fournisseur = []
+
     def __init__(self, p_code_fournisseur : str = "", p_nom_compagnie: str = "",
                  p_ls_patient: list = []):
         """
